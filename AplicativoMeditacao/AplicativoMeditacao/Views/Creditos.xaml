@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AplicativoMeditacao.Views.Creditos"
+             BackgroundImage="bgimage.jpg">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="25" Spacing="5">
+                <Label Text="CRÉDITOS" Style="{StaticResource labelStyle1}" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
+                <Image Source="icone_meditacao.png" VerticalOptions="Center" />
+                <StackLayout x:Name="layoutConteudo"></StackLayout>
+                <Label Text="{Binding CarregamentoDoTexto}" FontSize="Small" Style="{StaticResource labelStyle1}" HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

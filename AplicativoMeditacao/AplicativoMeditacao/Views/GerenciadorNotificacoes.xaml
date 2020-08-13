@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="MyNotifyPage"
+             x:Class="AplicativoMeditacao.Views.GerenciadorNotificacoes"
+             xmlns:controls="clr-namespace:AplicativoMeditacao.Control;assembly=AplicativoMeditacao"
+             BackgroundImage="bgimage.jpg">
+    <ContentPage.Content>
+        <StackLayout Padding="25">
+            <controls:StyledButton Style="{StaticResource buttonStyle1}" Text="Criar outro horário" Command="{Binding AdicionarNotificacao}"/>
+            <ListView x:Name="listViewNot" ItemsSource="{Binding Notificacoes}" HasUnevenRows="True" SelectedItem="{Binding NotSelecionada, Mode=TwoWay}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Padding="5">
+                                    <Label Style="{StaticResource labelStyle1}" Text="{Binding HorarioTexto}" FontSize="20" />
+                                    <Label Style="{StaticResource labelStyle1}" Text="{Binding Legenda}" FontSize="15"/>
+                                    <StackLayout IsVisible="{Binding MostrarDados}">
+                                        <controls:StyledButton Text="{Binding StatusAlarme}" WidthRequest="110" HorizontalOptions="Start" Command="{Binding Source={x:Reference MyNotifyPage}, Path=BindingContext.AtivarDesativarNotificacao}" CommandParameter="{Binding .}"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <controls:StyledButton Text="{Binding StatusVibracao}" WidthRequest="110" HorizontalOptions="Start" Command="{Binding Source={x:Reference MyNotifyPage}, Path=BindingContext.AtivarDesativarVibracao}" CommandParameter="{Binding .}"/>
+                                            <controls:StyledButton Text="{Binding StatusSom}" WidthRequest="110" HorizontalOptions="EndAndExpand" Command="{Binding Source={x:Reference MyNotifyPage}, Path=BindingContext.AtivarDesativarSom}" CommandParameter="{Binding .}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <controls:StyledButton WidthRequest="110" Text="Apagar" Command="{Binding Source={x:Reference MyNotifyPage}, Path=BindingContext.ApagarNotificacao}" CommandParameter="{Binding .}"/>
+                                        <controls:StyledButton WidthRequest="110" Text="{Binding MostrarEsconder}" Command="{Binding Source={x:Reference MyNotifyPage}, Path=BindingContext.MostrarEsconderNotificacao}" CommandParameter="{Binding .}" HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

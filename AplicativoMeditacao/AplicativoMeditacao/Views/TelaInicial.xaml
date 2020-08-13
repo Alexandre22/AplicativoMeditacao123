@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AplicativoMeditacao.Views.TelaInicial"
+             xmlns:controls="clr-namespace:AplicativoMeditacao.Control;assembly=AplicativoMeditacao"
+             BackgroundImage="bgimage.jpg">
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout Padding="40,15,40,0">
+                <Label Text="{Binding MensagemAtualizacaoUm, Mode=TwoWay}" HorizontalOptions="CenterAndExpand" TextColor="#000000" VerticalOptions="StartAndExpand" FontSize="Small" />
+                <Label Text="{Binding MensagemAtualizacaoDois, Mode=TwoWay}" HorizontalOptions="CenterAndExpand" TextColor="#1F10E9" VerticalOptions="StartAndExpand" FontSize="Small">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            Command="{Binding AbrirAppStore}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="UM MINUTO DE PRESENÇA" Style="{StaticResource labelStyle1}"  FontSize="Large" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                <Image Source="icone_meditacao.png" VerticalOptions="Center" Margin="5" />
+                <StackLayout Padding="20,5,20,0" >
+                    <controls:StyledButton Text="Orientações" Style="{StaticResource buttonStyle1}" HorizontalOptions="FillAndExpand" FontSize="Medium" Command="{Binding AbreOrientacoes}"/>
+                    <controls:StyledButton Text="Meditação" Style="{StaticResource buttonStyle1}" HorizontalOptions="FillAndExpand" FontSize="Medium" Command="{Binding AbreMeditacao}"/>
+                </StackLayout>
+                <StackLayout Padding="20" VerticalOptions="Center"></StackLayout>
+                <StackLayout Padding="20,0,20,0">
+                    <controls:StyledButton Text="Meu Horário de Meditação" Style="{StaticResource buttonStyle1}" HorizontalOptions="FillAndExpand" FontSize="Small" Command="{Binding AbreGerenciadorNotificacoes}"/>
+                    <controls:StyledButton Text="Espaço Presença" Style="{StaticResource buttonStyle1}" HorizontalOptions="FillAndExpand" FontSize="Small" Command="{Binding AbreEspacoPresenca}"/>
+                    <controls:StyledButton Text="Créditos" Style="{StaticResource buttonStyle1}" HorizontalOptions="FillAndExpand" FontSize="Small" Command="{Binding AbreCreditos}"/>
+                </StackLayout>
+                <Label Text="{Binding CarregamentoDoTexto, Mode=TwoWay}" FontSize="Small" TextColor="#000000" />
+            </StackLayout>
+            <!--<controls:AdMobView VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

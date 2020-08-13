@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AplicativoMeditacao.Views.AntesMeditacao"
+             xmlns:controls="clr-namespace:AplicativoMeditacao.Control;assembly=AplicativoMeditacao"
+             BackgroundImage="bgimage.jpg">
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout Padding="20,10,20,10" >
+                <Label Text="Leia as &quot;Orientações&quot; antes de iniciar as práticas." FontSize="Small" HorizontalOptions="Center" Style="{StaticResource labelStyle1}" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Tempo total meditado:" FontSize="Medium" Style="{StaticResource labelStyle1}"/>
+                    <Label Text="{Binding TempoTotalMeditado, Mode=TwoWay}" FontSize="Medium" Style="{StaticResource labelStyle1}"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="HUMMING" HorizontalOptions="Center" Style="{StaticResource labelStyle1}" FontSize="Large" />
+                    <StackLayout Orientation="Horizontal" Spacing="0">
+                        <Label Text="Áudio:  " FontSize="Medium" Style="{StaticResource labelStyle1}" VerticalOptions="CenterAndExpand"/>
+                        <StackLayout Spacing="0">
+                            <Label Text="{Binding AudioHumming}" FontSize="Medium" Style="{StaticResource labelStyle1}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AbrirListaDeSonsHumming}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <StackLayout HeightRequest="1" BackgroundColor="Black" Margin="-2"></StackLayout>
+                        </StackLayout>
+                        <StackLayout>
+                            <Image Source="expandArrow.png" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand" >
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                    Command="{Binding AbrirListaDeSonsHumming}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                    </StackLayout>
+                    <Label Text="Tempo (em minutos):" FontSize="Medium" Style="{StaticResource labelStyle1}"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding ValorHumming, Mode=TwoWay}" HorizontalOptions="CenterAndExpand" FontSize="25" Style="{StaticResource labelStyle1}"/>
+                        <Label Text="{Binding TempoMaximoHumming, Mode=TwoWay}" FontSize="15" VerticalOptions="EndAndExpand" Style="{StaticResource labelStyle1}" />
+                    </StackLayout>
+                    <Slider x:Name="xsliderHumming" Value="{Binding ValorHumming, Mode=TwoWay}" Maximum="{Binding TempoMaximoHumming, Mode=TwoWay}" Minimum="0"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Button Image="leftArrow.png" ContentLayout="Top" BackgroundColor="Transparent" Command="{Binding DiminuirTempoDeHumming}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                        <!-- 
+                        <Button Image="leftArrow.png" HeightRequest="50" BackgroundColor="#FFFFFF" Command="{Binding DiminuirTempoDeHumming}" VerticalOptions="Center" HorizontalOptions="StartAndExpand"  />
+                        <Image Source="leftArrow.png" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                    Command="{Binding DiminuirTempoDeHumming}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        -->
+                        <Button Image="rightArrow.png" Command="{Binding AumentarTempoDeHumming}" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="EndAndExpand"  />
+                        <!--
+                        <Button Image="rightArrow.png" BackgroundColor="#FFFFFF" Command="{Binding AumentarTempoDeHumming}" VerticalOptions="Center" HorizontalOptions="EndAndExpand"  />
+                        <Image Source="rightArrow.png" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                    Command="{Binding AumentarTempoDeHumming}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        -->
+                    </StackLayout>
+                </StackLayout>
+                
+                <StackLayout>
+                    <Label Text="UM MINUTO DE PRESENÇA" FontSize="Large" HorizontalOptions="Center" Style="{StaticResource labelStyle1}" />
+                    <StackLayout Orientation="Horizontal" Spacing="0">
+                        <Label Text="Áudio:  " FontSize="Medium" Style="{StaticResource labelStyle1}" VerticalOptions="CenterAndExpand"/>
+                        <StackLayout Spacing="0" >
+                            <Label Text="{Binding AudioUMP}" VerticalOptions="CenterAndExpand" FontSize="Medium" Style="{StaticResource labelStyle1}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AbrirListaDeSonsUMP}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <StackLayout BackgroundColor="Black" HeightRequest="1" ></StackLayout>
+                        </StackLayout>
+                        <StackLayout>
+                            <Image Source="expandArrow.png" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" >
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                    Command="{Binding AbrirListaDeSonsUMP}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                    </StackLayout>
+                    <Label Text="Tempo (em minutos):" FontSize="Medium" Style="{StaticResource labelStyle1}"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Valor, Mode=TwoWay}" FontSize="25" HorizontalOptions="CenterAndExpand" Style="{StaticResource labelStyle1}"/>
+                        <Label Text="{Binding TempoMaximoUMDP, Mode=TwoWay}" FontSize="15" VerticalOptions="EndAndExpand" Style="{StaticResource labelStyle1}" />
+                    </StackLayout>
+                    <Slider x:Name="xslider" Value="{Binding Valor, Mode=TwoWay}" Maximum="{Binding TempoMaximoUMDP, Mode=TwoWay}" Minimum="{Binding TempoMinimoUMDP}"/>
+                    <StackLayout Orientation="Horizontal" Padding="10" >
+                        <Button Margin="-10" Image="leftArrow.png" BackgroundColor="Transparent" Command="{Binding DiminuirTempoDeUMP}" VerticalOptions="Center" HorizontalOptions="StartAndExpand"  />
+                        <!--
+                        <Image Source="leftArrow.png" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                    Command="{Binding DiminuirTempoDeUMP}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        -->
+                        <Button Margin="-10" Image="rightArrow.png" BackgroundColor="Transparent" Command="{Binding AumentarTempoDeUMP}" VerticalOptions="Center" HorizontalOptions="EndAndExpand"  />
+                        <!--
+                        <Image Source="rightArrow.png" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                    Command="{Binding AumentarTempoDeUMP}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        -->
+                    </StackLayout>
+                </StackLayout>
+
+                <controls:StyledButton Text="Começar" Style="{StaticResource buttonStyle1}" Command="{Binding ComecaMeditacaoUMDP}" />
+            </StackLayout>
+
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

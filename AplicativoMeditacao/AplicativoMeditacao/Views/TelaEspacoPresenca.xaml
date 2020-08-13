@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:AplicativoMeditacao.Controls;assembly=AplicativoMeditacao"
+             x:Class="AplicativoMeditacao.Views.TelaEspacoPresenca"
+             BackgroundImage="bgimage.jpg">
+  <ContentPage.Content>
+    <ScrollView>
+      <StackLayout Padding="25">
+        <Label Text="ESPAÇO PRESENÇA" Style="{StaticResource labelStyle1}" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
+        <StackLayout Padding="5" ></StackLayout>
+        <Image Source="espacopresenca.jpg" />
+        <Label Text="{Binding CarregamentoDoTexto}" FontSize="Small" Style="{StaticResource labelStyle1}" HorizontalOptions="CenterAndExpand" />
+        <StackLayout x:Name="layoutConteudo"></StackLayout>
+      </StackLayout>
+    </ScrollView>
+  </ContentPage.Content>
+</ContentPage>

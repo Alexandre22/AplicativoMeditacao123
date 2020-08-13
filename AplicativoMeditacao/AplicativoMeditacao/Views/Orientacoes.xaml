@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AplicativoMeditacao.Views.Orientacoes"
+             BackgroundImage="bgimage.jpg">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="25" Spacing="0" x:Name="layoutOrientacao" >
+                <Label FormattedText="{Binding Pagina.Titulo}" Style="{StaticResource labelStyle1}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
+                <Image Source="icone_meditacao.png" VerticalOptions="Center" />
+                <StackLayout Spacing="-6" x:Name="layoutConteudo"></StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand" x:Name="layoutPageButtons"></StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

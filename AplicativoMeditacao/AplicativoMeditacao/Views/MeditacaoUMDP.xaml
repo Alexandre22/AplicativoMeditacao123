@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AplicativoMeditacao.Views.MeditacaoUMDP"
+             xmlns:controls="clr-namespace:AplicativoMeditacao.Control;assembly=AplicativoMeditacao"
+             BackgroundImage="bgimage.jpg">
+    <ContentPage.Resources>
+        <ResourceDictionary x:Name="AppDictionary">
+            <Color x:Key="BackgroundColor">#C8C0E2</Color>
+            <Color x:Key="BorderColor">#0D0625</Color>
+            <Style x:Key="InternalViewStyle" TargetType="ContentView">
+                <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}"/>
+                <Setter Property="VerticalOptions" Value="Fill"/>
+                <Setter Property="Padding" Value="5,5,5,5"></Setter>
+            </Style>
+            <Style x:Key="BorderStyle" TargetType="ContentView">
+                <Setter Property="BackgroundColor" Value="{StaticResource BorderColor}"/>
+                <Setter Property="Padding" Value="4,4,4,4"></Setter>
+            </Style>
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="30"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="25">
+            <StackLayout Padding ="20"></StackLayout>
+            <Label Text="{Binding NomeDaMeditacao, Mode=TwoWay}" FontSize="Large" FontAttributes="Bold" TextColor="#102D14" HorizontalOptions="CenterAndExpand"/>
+            <Image Source="icone_meditacao.png" VerticalOptions="Center" HeightRequest="100" WidthRequest="100"/>
+            <ContentView Padding="5" HorizontalOptions="Center">
+                <Label Text="{Binding TempoTotal, Mode=TwoWay, StringFormat=\{0:h\\:mm\\:ss\}}" HorizontalOptions="CenterAndExpand" FontSize="60" TextColor="#2E1F61" />
+            </ContentView>
+            <StackLayout Padding ="-15"></StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <controls:StyledButton Text="+1" Style="{StaticResource buttonStyle1}" BackgroundColor="#349332" TextColor="#A2DAA1" FontSize="30" Command="{Binding AcrescentarUmMinuto}"/>
+                <controls:StyledButton Text="{Binding NomeBotao}" Style="{StaticResource buttonStyle1}" BackgroundColor="#1414E6" TextColor="#F3F3FA" FontSize="30" Command="{Binding PausaIniciaMeditacao}" />
+                <controls:StyledButton Image="reiniciar.png" BackgroundColor="#F0290F"  Command="{Binding ReiniciaMeditacao}" />
+            </StackLayout>
+            <!--<Label Text="{Binding TempoFinal, Mode=TwoWay}" FontSize="Small" TextColor="#102D14"/> TextColor="#F2BEC6" -->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="15dp"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:id="@+id/layoutPrincipal">
+    <TextView
+        android:text="Você acha que pode aumentar o limite de tempo sem comprometer a qualidade da Presença?"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:id="@+id/textView1" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/layoutHumming">
+        <TextView
+            android:text="Humming"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:id="@+id/textView2" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/linearLayoutButton1">
+            <Button
+                android:text="Sim"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:background="#84B6CA"
+                android:id="@+id/btHummingSim" />
+            <Button
+                android:text="Não"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginLeft="5dp"
+                android:background="#84B6CA"
+                android:id="@+id/btHummingNao" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:id="@+id/layoutUMDP">
+        <TextView
+            android:text="Um Minuto de Presença"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:id="@+id/textView3" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/linearLayoutButton2">
+            <Button
+                android:text="Sim"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:background="#84B6CA"
+                android:id="@+id/btUMDPSim" />
+            <Button
+                android:text="Não"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginLeft="5dp"
+                android:background="#84B6CA"
+                android:id="@+id/btUMDPNao" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

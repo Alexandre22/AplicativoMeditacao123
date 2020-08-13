@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AplicativoMeditacao.Views.SalvaNotificacao"
+             xmlns:controls="clr-namespace:AplicativoMeditacao.Control;assembly=AplicativoMeditacao"
+             BackgroundImage="bgimage.jpg">
+    <!--<ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="layoutStyle1" TargetType="Layout">
+        <Setter Property="Padding" Value="25" />
+        <Setter Property="BackgroundColor" Value="#434638" />
+      </Style>
+      <Style x:Key="labelStyle1" TargetType="Label">
+        <Setter Property="TextColor" Value="#E5EFC2" />
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>-->
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="25">
+                <Label Text="Escolha abaixo o horário: " FontSize="Medium" Style="{StaticResource labelStyle1}"/>
+                <TimePicker BackgroundColor="#FACC70" TextColor="#434638" Time="{Binding Horario, Mode=TwoWay}" />
+                <Label Text="Escreva abaixo uma ou mais palavras de estímulo à sua prática de meditação: " FontSize="Medium" Style="{StaticResource labelStyle1}"/>
+                <Entry Placeholder="Legenda" BackgroundColor="#FACC70" TextColor="#000000" Text="{Binding TextoNotificacao, Mode=TwoWay}" Style="{StaticResource labelStyle1}"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Repetir" Style="{StaticResource labelStyle1}"/>
+                    <Switch IsToggled="{Binding Repetir, Mode=TwoWay}" />
+                </StackLayout>
+                <Label Style="{StaticResource labelStyle1}" Text="Escolha abaixo os dias da semana que deseja ser lembrado de sua prática de meditação: " x:Name="lblDias" IsVisible="{Binding Repetir, Mode=TwoWay}"/>
+                <StackLayout Orientation="Horizontal" x:Name="layoutDiasSemana" IsVisible="{Binding Repetir, Mode=TwoWay}">
+                    <StackLayout>
+                        <Label Text="Dom" Style="{StaticResource labelStyle1}"/>
+                        <Switch IsToggled="{Binding IsDomOn, Mode=TwoWay}" />
+                        <Label Text="Qui" Style="{StaticResource labelStyle1}"/>
+                        <Switch IsToggled="{Binding IsQuiOn, Mode=TwoWay}" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Seg" Style="{StaticResource labelStyle1}"/>
+                        <Switch IsToggled="{Binding IsSegOn, Mode=TwoWay}" />
+                        <Label Text="Sex" Style="{StaticResource labelStyle1}"/>
+                        <Switch IsToggled="{Binding IsSexOn, Mode=TwoWay}" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Ter" Style="{StaticResource labelStyle1}"/>
+                        <Switch IsToggled="{Binding IsTerOn, Mode=TwoWay}" />
+                        <Label Text="Sab" Style="{StaticResource labelStyle1}"/>
+                        <Switch IsToggled="{Binding IsSabOn, Mode=TwoWay}" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Qua" Style="{StaticResource labelStyle1}"/>
+                        <Switch IsToggled="{Binding IsQuaOn, Mode=TwoWay}" />
+                    </StackLayout>
+                </StackLayout>
+                <controls:StyledButton Text="Salvar" Style="{StaticResource buttonStyle1}" Command="{Binding SalvarNotificacao}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
